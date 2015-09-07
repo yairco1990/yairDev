@@ -8,6 +8,8 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.jboss.logging.Logger;
 
+import java.io.File;
+
 public class HibernateConnector {
     private static SessionFactory sessionFactory;
     static Logger log = Logger.getLogger(HibernateConnector.class.getName());
@@ -19,12 +21,12 @@ public class HibernateConnector {
             Configuration configuration = new Configuration();
 
 
-//            File file = new File("file://../../GoTimeServices/src/main/webapp/WEB-INF/classes/hibernate.cfg.xml");
-//            System.out.println("file" + file.exists());
+            File file = new File("hibernate.cfg.xml");
+            System.out.println("file" + file.exists());
 
 
-            //configuration.configure(file);
             configuration.configure("hibernate.cfg.xml");
+//            configuration.configure("hibernate.cfg.xml");
 
             System.out.println("Hibernate Configuration loaded");
 
