@@ -32,6 +32,8 @@
 
         <!--MODELS-->
         <mapping class="dal.models.EventEntity"/>
+        <mapping class="dal.models.PictureEntity"/>
+        <mapping class="dal.models.UserEntity"/>
 
         <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
     </session-factory>

@@ -3,6 +3,8 @@ package bl.event;
 import dal.dbmanagers.EventDBManager;
 import dal.models.EventEntity;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -14,17 +16,26 @@ public class EventLogic {
 
     }
 
-    public static String getAllEvents() {
+    /**
+     * get all the events
+     * @return
+     */
+    public String getAllEvents() {
+        //create eventDBManager
         EventDBManager eventDBManager = new EventDBManager();
 
+        //get all the events from db
         List<EventEntity> events = eventDBManager.getAllEvents();
 
-        String s = "";
+        ArrayList<HashMap<String,Object>> list = new ArrayList<HashMap<String, Object>>();
 
+        //set all the events in hashMap
         for (EventEntity eventEntity : events){
-            s = s + eventEntity.getId() + " " + eventEntity.getName() + "\n";
+            HashMap<String, Object> hashMap = new HashMap<String, Object>();
+            hashMap.put("id", eventEntity.getId());
+            hashMap.put("name", eventEntity.getName());
+            list.add(hashMap);
         }
-
-        return s;
+        return list.toString();
     }
 }

@@ -19,9 +19,6 @@ public class EventServices {
     public String getMsg() {
         EventLogic eventLogic = new EventLogic();
 
-        String s = eventLogic.getAllEvents();
-
-        return s;
-
+        return eventLogic.getAllEvents();
     }
 }
