@@ -1,6 +1,7 @@
 package dal.models;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 /**
  * Created by Yair on 07/09/2015.
@@ -8,21 +9,24 @@ import javax.persistence.*;
 @Entity
 @Table(name = "event", schema = "", catalog = "yairdev")
 public class EventEntity {
-    private Integer id;
+    private int id;
     private String name;
+    private Collection<PictureEntity> picturesById;
+    private Collection<UserEntity> usersById;
 
     @Id
-    @Column(name = "id", nullable = false, insertable = true, updatable = true)
-    public Integer getId() {
+    @GeneratedValue
+    @Column(name = "id")
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
-    @Column(name = "name", nullable = true, insertable = true, updatable = true, length = 125)
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -38,7 +42,7 @@ public class EventEntity {
 
         EventEntity that = (EventEntity) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (id != that.id) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;
 
         return true;
@@ -46,8 +50,26 @@ public class EventEntity {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
+        int result = id;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @OneToMany(mappedBy = "eventByEventId")
+    public Collection<PictureEntity> getPicturesById() {
+        return picturesById;
+    }
+
+    public void setPicturesById(Collection<PictureEntity> picturesById) {
+        this.picturesById = picturesById;
+    }
+
+    @OneToMany(mappedBy = "eventByEventId")
+    public Collection<UserEntity> getUsersById() {
+        return usersById;
+    }
+
+    public void setUsersById(Collection<UserEntity> usersById) {
+        this.usersById = usersById;
     }
 }

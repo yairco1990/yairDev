@@ -22,7 +22,7 @@ public class EventLogic {
         String s = "";
 
         for (EventEntity eventEntity : events){
-            s = s + eventEntity.getId() + " " + eventEntity.getName();
+            s = s + eventEntity.getId() + " " + eventEntity.getName() + "\n";
         }
 
         return s;

@@ -15,7 +15,7 @@ public class EventDBManager extends DBManager{
     }
 
     /**
-     * @return favorite branches of the user
+     * @return all the events
      */
     public List<EventEntity> getAllEvents() {
         openSession();
@@ -24,10 +24,11 @@ public class EventDBManager extends DBManager{
 //                .createAlias("favoritesById", "favorite");
 //        criteria.add(Restrictions.eq("favorite.userId", userId));
 
-        List<EventEntity> branches = criteria.list();
+        List<EventEntity> events = criteria.list();
 
         closeSession();
 
-        return branches;
+        return events;
     }
+
 }
