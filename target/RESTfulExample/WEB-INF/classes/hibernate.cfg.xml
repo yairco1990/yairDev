@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
 
-        <property name="connection.url">jdbc:mysql://localhost:3306/yairdev</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">123456</property>
@@ -15,7 +15,7 @@
         <property name="show_sql">true</property>
 
         <property name="format_sql">true</property>
-        <property name="hbm2ddl.auto">validate</property>
+        <!--<property name="hbm2ddl.auto">validate</property>-->
 
         <property name="hibernate.c3p0.min_size">1</property>
         <property name="hibernate.c3p0.max_size">145</property>
@@ -32,8 +32,6 @@
 
         <!--MODELS-->
         <mapping class="dal.models.EventEntity"/>
-        <mapping class="dal.models.TestEntity"/>
-        <mapping class="dal.models.PushButtonTestEntity"/>
 
         <!-- <mapping resource="com/mkyong/user/DBUser.hbm.xml"></mapping> -->
     </session-factory>

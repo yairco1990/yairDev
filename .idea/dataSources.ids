@@ -9,37 +9,9 @@
     <schema name="" catalog="yairdev"/>
     <table name="event" schema="" catalog="yairdev" type="TABLE">
       <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id"/>
-      <exported-key name="picture_event_id" table="picture" schema="" catalog="yairdev" columns="event_id"/>
-      <exported-key name="user_event_id" table="user" schema="" catalog="yairdev" columns="event_id"/>
       <index name="id_UNIQUE" unique="true" columns="id"/>
-    </table>
-    <table name="hibernate_sequence" schema="" catalog="yairdev" type="TABLE">
-      <column name="next_val" sqlType="BIGINT" precision="19" scale="0" nullable="true" jdbcType="-5"/>
-    </table>
-    <table name="picture" schema="" catalog="yairdev" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="event_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="picture_event_id" columns="event_id" ref-table="event" ref-schema="" ref-catalog="yairdev" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <foreign-key name="picture_user_id" columns="user_id" ref-table="user" ref-schema="" ref-catalog="yairdev" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <index name="id_UNIQUE" unique="true" columns="id"/>
-      <index name="picture_event_id_idx" unique="false" columns="event_id"/>
-      <index name="picture_user_id_idx" unique="false" columns="user_id"/>
-    </table>
-    <table name="user" schema="" catalog="yairdev" type="TABLE">
-      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="first_name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="last_name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="phone_number" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="event_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
-      <primary-key name="PRIMARY" columns="id"/>
-      <foreign-key name="user_event_id" columns="event_id" ref-table="event" ref-schema="" ref-catalog="yairdev" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
-      <exported-key name="picture_user_id" table="picture" schema="" catalog="yairdev" columns="user_id"/>
-      <index name="id_UNIQUE" unique="true" columns="id"/>
-      <index name="user_event_id_idx" unique="false" columns="event_id"/>
     </table>
   </data-source>
 </component>

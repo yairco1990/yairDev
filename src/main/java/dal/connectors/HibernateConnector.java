@@ -1,8 +1,6 @@
 package dal.connectors;
 
 import dal.models.EventEntity;
-import dal.models.PictureEntity;
-import dal.models.UserEntity;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -30,9 +28,7 @@ public class HibernateConnector {
 
             configuration.configure("hibernate.cfg.xml");
 
-            configuration.addAnnotatedClass(EventEntity.class)
-                    .addAnnotatedClass(PictureEntity.class)
-                    .addAnnotatedClass(UserEntity.class);
+            configuration.addAnnotatedClass(EventEntity.class);
 
             System.out.println("Hibernate Configuration loaded");
 
