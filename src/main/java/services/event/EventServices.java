@@ -18,7 +18,7 @@ public class EventServices {
 
         String s = eventLogic.getAllEvents();
 
-        return "as";
+        return s;
 
     }
 }
