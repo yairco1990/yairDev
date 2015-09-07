@@ -2,6 +2,7 @@ package bl.event;
 
 import dal.dbmanagers.EventDBManager;
 import dal.models.EventEntity;
+import interfaces.services.ServiceResult;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,16 +12,16 @@ import java.util.List;
  * Created by Yair on 07/09/2015.
  */
 public class EventLogic {
-
+    ServiceResult result;
     public EventLogic(){
-
+        result = new ServiceResult();
     }
 
     /**
      * get all the events
      * @return
      */
-    public String getAllEvents() {
+    public ServiceResult getAllEvents() {
         //create eventDBManager
         EventDBManager eventDBManager = new EventDBManager();
 
@@ -36,6 +37,9 @@ public class EventLogic {
             hashMap.put("name", eventEntity.getName());
             list.add(hashMap);
         }
-        return list.toString();
+
+        result.setResultWithSuccess(list);
+
+        return result;
     }
 }

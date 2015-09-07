@@ -1,6 +1,7 @@
 package services.event;
 
 import bl.event.EventLogic;
+import interfaces.services.ServiceResult;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -16,7 +17,7 @@ public class EventServices {
 
     @GET
     @Path("/getallevents")
-    public String getMsg() {
+    public ServiceResult getAllEvents() {
         EventLogic eventLogic = new EventLogic();
 
         return eventLogic.getAllEvents();
