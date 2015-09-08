@@ -13,8 +13,10 @@ public class EventEntity {
     private String name;
     private Collection<PictureEntity> picturesById;
     private Collection<UserEntity> usersById;
+    private String image;
 
     @Id
+    @GeneratedValue
     @Column(name = "id")
     public int getId() {
         return id;
@@ -70,5 +72,15 @@ public class EventEntity {
 
     public void setUsersById(Collection<UserEntity> usersById) {
         this.usersById = usersById;
+    }
+
+    @Basic
+    @Column(name = "image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

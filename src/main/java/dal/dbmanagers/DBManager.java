@@ -131,7 +131,7 @@ public abstract class DBManager {
      *
      * @param entity
      */
-    protected void updateEntity(Object entity) {
+    public void updateEntity(Object entity) {
 
         openSession();
 

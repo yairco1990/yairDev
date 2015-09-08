@@ -35,6 +35,7 @@ public class EventLogic {
             HashMap<String, Object> hashMap = new HashMap<String, Object>();
             hashMap.put("id", eventEntity.getId());
             hashMap.put("name", eventEntity.getName());
+            hashMap.put("image", eventEntity.getImage());
             list.add(hashMap);
         }
 
